@@ -7,3 +7,12 @@ export function posts (state = [], action) {
             return state;
     }
 }
+
+export function postsQuery (state = null, action) {
+    switch (action.type) {
+        case 'QUERY_POSTS':
+            return action.query;
+        default:
+            return state;
+    }
+}

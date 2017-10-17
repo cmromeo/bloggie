@@ -52,6 +52,17 @@
   width: 73%;
   display: inline-block;
 }
+.search-posts {
+  padding: 10px 10px 10px 40px;
+  background-image: url('./icons/search.svg');
+  background-repeat: no-repeat;
+  background-position: 0px center;
+  background-size: 1.2em;
+  font-size: 1.2em;
+  border: 0;
+  outline: none;
+  width: 100%;
+}
 
 .add-vote {
   float:right;

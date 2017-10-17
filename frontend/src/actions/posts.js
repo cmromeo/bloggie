@@ -5,6 +5,7 @@ import {
 } from './common';
 
 export const FETCH_POSTS_SUCCESS = 'FETCH_POSTS_SUCCESS';
+export const QUERY_POSTS = 'QUERY_POSTS';
 
 
 export function fetchPostsSuccessAction(posts) {
@@ -33,6 +34,13 @@ export function fetchPosts() {
                 }
             )
             .catch((error) => dispatch(errorCommunicatingWithServerAction(error, "Error while downloading posts. ", error)));
+    };
+}
+
+export function queryPosts(query) {
+    return {
+        type: QUERY_POSTS,
+        query
     };
 }
 
