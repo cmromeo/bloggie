@@ -3,8 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 import {
     Grid,
-    Col,
-    Image
+    Col
 } from 'react-bootstrap';
 
 class Welcome extends Component {
