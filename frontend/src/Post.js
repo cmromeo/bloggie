@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 import unixToDate from './utils/DateTools'
+import EditPostLink from './EditPostLink';
 
 import { connect } from 'react-redux';
 
@@ -46,6 +47,10 @@ class Post extends Component {
                         style={{cursor: "pointer", hover: "hand"}}
                         >
                     </div>
+                    <EditPostLink 
+                        post={post}
+                        history={history}
+                     />
                 </div>
             </div> 
         );
