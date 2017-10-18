@@ -9,6 +9,8 @@ import {Route} from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 import PostAddEditForm from './PostAddEditForm';
 import PostComments from './PostComments';
+import CommentAddEditForm from './CommentAddEditForm';
+
 
 
 class App extends Component {
@@ -46,11 +48,18 @@ class App extends Component {
                         />
                     )}/>
                     <Route exact path='/posts/details/:postId' render={({history})  => (
-                    <PostComments
-                        history={history}
-                        displayPostDetails={this.displayPostDetails}
-                    />
-                )}/>
+                        <PostComments
+                            history={history}
+                            displayPostDetails={this.displayPostDetails}
+                        />
+                        
+                    )}/>
+                    <Route exact path={`/comments/add`} render={({history})  => (
+                        <CommentAddEditForm
+                            history={history}
+                            displayPostDetails={this.displayPostDetails}
+                        />
+                    )}/>
                 </div>
             </div>
         );
