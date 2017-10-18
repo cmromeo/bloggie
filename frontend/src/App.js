@@ -8,10 +8,17 @@ import Posts from './Posts';
 import {Route} from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 import PostAddEditForm from './PostAddEditForm';
-
+import PostComments from './PostComments';
 
 
 class App extends Component {
+
+    displayPostDetails = (post) => {
+        //this.selectPost(post);
+        this.props.history.push({
+            pathname: `/posts/details/${post.id}/`  //path
+        });
+    }
 
     render() {
 
@@ -24,6 +31,7 @@ class App extends Component {
                             <Welcome />
                             <Posts 
                                 history={history}
+                                displayPostDetails={this.displayPostDetails}
                             />
                         </div>
                     )}/>
@@ -37,6 +45,12 @@ class App extends Component {
                             history={history}
                         />
                     )}/>
+                    <Route exact path='/posts/details/:postId' render={({history})  => (
+                    <PostComments
+                        history={history}
+                        displayPostDetails={this.displayPostDetails}
+                    />
+                )}/>
                 </div>
             </div>
         );

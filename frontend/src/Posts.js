@@ -53,7 +53,7 @@ class Posts extends Component {
     
     render(){
 
-        const { history, server_communication_error, isLoading, posts, query } = this.props;
+        const { history, server_communication_error, isLoading, posts, query, displayPostDetails } = this.props;
 
         if (server_communication_error) {
             return <p>Sorry! There was an error while communicating with the server</p>;
@@ -83,6 +83,8 @@ class Posts extends Component {
                                 post={post} 
                                 key={post.id}
                                 history={history}
+                                parent={"Posts"}
+                                displayPostDetails={displayPostDetails}
                             >
                             </Post>
                         );

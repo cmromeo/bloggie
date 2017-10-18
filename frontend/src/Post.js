@@ -14,6 +14,12 @@ class Post extends Component {
             <div 
                 className="row row-bottom-bordered"
                 style={{cursor: "pointer", hover: "hand"}}
+                onClick={() => {
+                    //displayPostDetails is passed only when displaying multiple posts
+                    selectPost(post);
+                      console.log("post clicked post ", post);
+                    displayPostDetails && displayPostDetails(post);
+                }}
                 >
                 <div className="post-title">
                     { post && post.title }
