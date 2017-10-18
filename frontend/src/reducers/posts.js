@@ -35,3 +35,13 @@ export function selectedPost (state = null, action) {
             return state;
     }
 }
+
+export function postSorterIndex (state = 0, action) {
+    switch (action.type) {
+        case 'POST_SORTER_INDEX':
+            return action.sorterIndex;
+
+        default:
+            return state;
+    }
+}

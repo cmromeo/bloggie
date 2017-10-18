@@ -10,7 +10,7 @@ export const ADD_POST_SUCCESS = 'ADD_POST_SUCCESS';
 export const UPDATE_POST_SUCCESS = 'UPDATE_POST_SUCCESS';
 export const SELECTED_POST = 'SELECTED_POST';
 export const UPDATE_SELECTED_POST = 'UPDATE_SELECTED_POST';
-
+export const POST_SORTER_INDEX = 'POST_SORTER_INDEX';
 
 export function fetchPostsSuccessAction(posts) {
     return {
@@ -135,6 +135,13 @@ export function updatePostSuccessAction(post) {
     return {
         type: UPDATE_POST_SUCCESS,
         post
+    };
+}
+
+export function postSorterIndex(sorterIndex) {
+    return {
+        type: POST_SORTER_INDEX,
+        sorterIndex
     };
 }
 

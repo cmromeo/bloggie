@@ -2,6 +2,26 @@
   text-align: center;
 }
 
+.navbar-no-margin {
+  margin-bottom: 0px ! important;
+}
+
+.row-bordered {
+  content: "";
+  display: block;
+  border: 1px solid #ccc;
+  margin: 0 15px;
+  padding-left:5px;
+}
+
+.row-bottom-bordered {
+  content: "";
+  display: block;
+  border-bottom: 1px solid #ccc;
+  margin: 10px 10px;
+  padding-bottom: 10px;
+}
+
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
@@ -12,10 +32,6 @@
   height: 150px;
   padding: 20px;
   color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
 }
 
 .App-intro {
@@ -48,20 +64,43 @@
   vertical-align: middle;
 }
 
-.search-wrapper {
-  width: 73%;
-  display: inline-block;
+.comment-heading {
+  font-size: 20px;
+  vertical-align: middle;
 }
-.search-posts {
-  padding: 10px 10px 10px 40px;
-  background-image: url('./icons/search.svg');
+.add-comment {
+  display: inline-block;
+  margin-right: 10px;
+  margin-left: 40px;
+  vertical-align: middle;
+  margin-bottom: 10px;
+}
+
+.add-comment a {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #2e7d32;
+  background-image: url('./icons/add.svg');
   background-repeat: no-repeat;
-  background-position: 0px center;
-  background-size: 1.2em;
-  font-size: 1.2em;
-  border: 0;
-  outline: none;
-  width: 100%;
+  background-position: center;
+  background-size: 20px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  font-size: 25;
+  vertical-align: middle;
+}
+
+
+.post-sorter {
+  display: inline-block;
+  margin-left: 30px;
+  margin-right:20px;
+}
+
+.search-wrapper {
+  width: 60%;
+  display: inline-block;
 }
 
 .add-vote {
@@ -203,24 +242,29 @@
   margin-right: 40px;
 }
 
-.navbar-no-margin {
-  margin-bottom: 0px ! important;
+.comment-body {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  color: black;
 }
 
-.row-bordered {
-  content: "";
-  display: block;
-  border: 1px solid #ccc;
-  margin: 0 15px;
-  padding-left:5px;
+.edit-comment {
+  float:right;
+  width: 20px;
+  height: 20px;
+  padding:5px 5px;
+  background-image: url('./icons/edit.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  margin: 0px 5px;
+  margin-right: 40px;
 }
 
-.row-bottom-bordered {
-  content: "";
-  display: block;
-  border-bottom: 1px solid #ccc;
-  margin: 10px 10px;
-  padding-bottom: 10px;
+.comment-author {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  color: #808080;
 }
-
-

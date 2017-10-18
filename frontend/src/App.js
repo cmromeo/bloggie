@@ -10,36 +10,37 @@ import { withRouter } from 'react-router-dom';
 import PostAddEditForm from './PostAddEditForm';
 
 
+
 class App extends Component {
 
-  render() {
+    render() {
 
-    return (
-        <div className="App">
-            <MyNav></MyNav>
-            <div>
-                <Route exact path='/' render={({history}) => (
-                    <div>
-                        <Welcome />
-                        <Posts 
+        return (
+            <div className="App">
+                <MyNav></MyNav>
+                <div>
+                    <Route exact path='/' render={({history}) => (
+                        <div>
+                            <Welcome />
+                            <Posts 
+                                history={history}
+                            />
+                        </div>
+                    )}/>
+                    <Route exact path='/posts/add' render={({history})  => (
+                        <PostAddEditForm
                             history={history}
-                          />
-                    </div>
-                )}/>
-                <Route exact path='/posts/add' render={({history})  => (
-                    <PostAddEditForm
-                        history={history}
-                    />
-                )}/>
-                <Route exact path='/posts/edit' render={({history})  => (
-                    <PostAddEditForm
-                        history={history}
-                    />
-                )}/>
+                        />
+                    )}/>
+                    <Route exact path='/posts/edit' render={({history})  => (
+                        <PostAddEditForm
+                            history={history}
+                        />
+                    )}/>
+                </div>
             </div>
-        </div>
-    );
-  }
+        );
+    }
 }
 
 export default withRouter(App);

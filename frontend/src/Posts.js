@@ -7,13 +7,29 @@ import {
 
 import Categories from './Categories';
 import Post from './Post';
+import Sorter from './Sorter';
+import sortBy from 'sort-by';
+import SORTED_BY from './utils/Constants';
 import Search from './Search';
 import AddPostLink from './AddPostLink';
 import color from './utils/ColorTools';
-import {fetchPosts} from './actions/posts';
+import {fetchPosts, selectPost} from './actions/posts';
 import { connect } from 'react-redux';
 
+
 class Posts extends Component {
+
+    sortPosts(){
+        const {postSorterIndex} = this.props;
+
+        let sorterKey;
+        if (SORTED_BY[postSorterIndex].type === 'desc'){
+            sorterKey = `${"-"}${SORTED_BY[postSorterIndex].key}`
+        }else{
+            sorterKey = SORTED_BY[postSorterIndex].key
+        }
+        this.props.posts.sort(sortBy(sorterKey));
+    }
 
 
     componentWillMount(){
@@ -21,6 +37,7 @@ class Posts extends Component {
     }
 
     componentDidMount(){
+        this.props.selectPost(null);
     }
 
     filterPosts(){
@@ -46,6 +63,8 @@ class Posts extends Component {
             return <p>Loading…</p>;
         }
 
+        this.sortPosts();
+
         let filteredPosts = posts;
         if (query){
             filteredPosts = this.filterPosts();
@@ -56,6 +75,7 @@ class Posts extends Component {
                 <Categories history={history} />
                 <Col md={9} style={{textAlign: "left", verticalAlign: "middle"}} >
                     <Search></Search>
+                    <Sorter></Sorter>
                     <AddPostLink />
                     {filteredPosts && filteredPosts.map((post) => {
                         return (
@@ -78,6 +98,7 @@ const mapStateToProps = (state) => {
         server_communication_error: state.server_communication_error,
         isLoading: state.isLoading,
         posts: state.posts,
+        postSorterIndex: state.postSorterIndex,
         query: state.postsQuery
     };
 };
@@ -85,6 +106,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         fetchPosts: () => dispatch(fetchPosts()),
+        selectPost: (post) => dispatch(selectPost(post))
     };
 };
 
