@@ -10,7 +10,7 @@ import { withRouter } from 'react-router-dom';
 import PostAddEditForm from './PostAddEditForm';
 import PostComments from './PostComments';
 import CommentAddEditForm from './CommentAddEditForm';
-
+import Category from './Category';
 
 
 class App extends Component {
@@ -62,6 +62,12 @@ class App extends Component {
                     )}/>
                     <Route exact path={`/comments/edit`} render={({history})  => (//comments/:commentId
                         <CommentAddEditForm
+                            history={history}
+                        />
+                    )}/>
+                    <Route exact path='/category/:categoryName' render={({history})  => (
+                        <Category  
+                            displayPostDetails={this.displayPostDetails}
                             history={history}
                         />
                     )}/>

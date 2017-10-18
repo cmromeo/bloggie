@@ -5,16 +5,21 @@ import {
     Col,
 } from 'react-bootstrap';
 import { connect } from 'react-redux';
-
-import {fetchCategories} from './actions/categories';
+import {fetchCategories, selectCategory} from './actions/categories';
+import {Link} from 'react-router-dom';
 
 class Categories extends Component {
+
+    onCategorySelect = (category, e) => {
+        this.props.selectCategory(category);
+    }
 
     /**
     * @description Called just after the component is mounted
     */
     componentDidMount(){
         this.props.fetchCategories();
+        this.props.selectCategory(null);
     }
 
     render(){
@@ -28,8 +33,8 @@ class Categories extends Component {
                         </li>
                         {this.props.categories && this.props.categories.map((category) => {
                             return (
-                                <li className="category" key={category.path} >
-                                    {category.name}
+                                <li className="category" key={category.path} onClick={(e) => this.onCategorySelect(category, e)} >
+                                    <Link to={{pathname: `/category/${category.path}` }}>{category.name}</Link>
                                 </li>
                             );
                         })}
@@ -52,6 +57,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         fetchCategories: () => dispatch(fetchCategories()),
+        selectCategory: (category) => dispatch(selectCategory(category))
     };
 };
 
