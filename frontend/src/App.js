@@ -7,6 +7,7 @@ import Welcome from './Welcome';
 import Posts from './Posts';
 import {Route} from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
+import PostAddEditForm from './PostAddEditForm';
 
 
 class App extends Component {
@@ -24,6 +25,11 @@ class App extends Component {
                             history={history}
                           />
                     </div>
+                )}/>
+                <Route exact path='/posts/edit' render={({history})  => (
+                    <PostAddEditForm
+                        history={history}
+                    />
                 )}/>
             </div>
         </div>
