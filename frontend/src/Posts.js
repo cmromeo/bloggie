@@ -8,6 +8,7 @@ import {
 import Categories from './Categories';
 import Post from './Post';
 import Search from './Search';
+import AddPostLink from './AddPostLink';
 import color from './utils/ColorTools';
 import {fetchPosts} from './actions/posts';
 import { connect } from 'react-redux';
@@ -55,6 +56,7 @@ class Posts extends Component {
                 <Categories history={history} />
                 <Col md={9} style={{textAlign: "left", verticalAlign: "middle"}} >
                     <Search></Search>
+                    <AddPostLink />
                     {filteredPosts && filteredPosts.map((post) => {
                         return (
                             <Post 

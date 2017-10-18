@@ -26,6 +26,11 @@ class App extends Component {
                           />
                     </div>
                 )}/>
+                <Route exact path='/posts/add' render={({history})  => (
+                    <PostAddEditForm
+                        history={history}
+                    />
+                )}/>
                 <Route exact path='/posts/edit' render={({history})  => (
                     <PostAddEditForm
                         history={history}
