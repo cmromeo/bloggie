@@ -1,3 +1,5 @@
+
+
 export function posts (state = [], action) {
     
     switch (action.type) {
@@ -11,15 +13,20 @@ export function posts (state = [], action) {
             return [...state.filter((onePost) => {
                 return onePost.id !== action.post.id;
             }), action.post];
+        case 'VOTE_POST_SUCCESS':
+            return [...state.filter((onePost) => {
+                return onePost.id !== action.post.id;
+            }), action.post];
         default:
             return state;
     }
 }
 
-export function postsQuery (state = null, action) {
+export function postSorterIndex (state = 0, action) {
     switch (action.type) {
-        case 'QUERY_POSTS':
-            return action.query;
+        case 'POST_SORTER_INDEX':
+            return action.sorterIndex;
+
         default:
             return state;
     }
@@ -36,12 +43,12 @@ export function selectedPost (state = null, action) {
     }
 }
 
-export function postSorterIndex (state = 0, action) {
+export function postsQuery (state = null, action) {
     switch (action.type) {
-        case 'POST_SORTER_INDEX':
-            return action.sorterIndex;
-
+        case 'QUERY_POSTS':
+            return action.query;
         default:
             return state;
     }
 }
+

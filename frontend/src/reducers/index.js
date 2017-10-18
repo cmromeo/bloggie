@@ -1,16 +1,18 @@
 import { combineReducers } from 'redux';
 import { dataIsLoading, serverCommunicationError } from './common';
-import { categories } from './categories';
-import { posts, postSorterIndex, postsQuery, selectedPost } from './posts';
+import { categories, selectedCategory } from './categories';
+import { posts, postSorterIndex, selectedPost, postsQuery } from './posts';
+
 
 const rootReducer =  combineReducers({
     dataIsLoading,
     serverCommunicationError,
+    postSorterIndex,
     categories,
     posts,
-    postSorterIndex,
     selectedPost,
-    postsQuery
+    selectedCategory, 
+    postsQuery,
 });
 
 export default rootReducer;
