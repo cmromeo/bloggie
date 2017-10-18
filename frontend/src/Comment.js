@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap-theme.css';
 import unixToDate from './utils/DateTools'
 import EditCommentLink from './EditCommentLink';
 
-import {selectComment, voteComment} from './actions/comments';
+import {selectComment, voteComment, deleteComment} from './actions/comments';
 import { connect } from 'react-redux';
 
 class Comment extends Component {
@@ -35,8 +35,10 @@ class Comment extends Component {
                     </div>
                     <div 
                         className="trash"
-                        
                         style={{cursor: "pointer", hover: "hand"}}
+                        onClick={()=>{
+                            deleteComment(comment.id);
+                        }}
                     >
                     </div>
                     <div 
@@ -80,6 +82,7 @@ const mapDispatchToProps = (dispatch) => {
     return {
         selectComment: (comment) => dispatch(selectComment(comment)),
         voteComment: (commentId, voteType) => dispatch(voteComment(commentId, voteType)),
+        deleteComment: (commentId) => dispatch(deleteComment(commentId))
     };
 };
 
