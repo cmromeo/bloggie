@@ -13,6 +13,7 @@ import { connect } from 'react-redux';
 import {fetchComments, updateSelectedComment} from './actions/comments';
 import sortBy from 'sort-by';
 import {Link} from 'react-router-dom';
+import Comment from './Comment';
 
 class PostComments extends Component {
 
@@ -67,10 +68,14 @@ class PostComments extends Component {
                     
                     {comments && comments.map((comment) => {
                         return (
-
-                            <div>
-                                <p>{comment.body}</p>
-                            </div>
+                            <Comment 
+                                comment={comment} 
+                                key={comment.id}
+                                post={selectedPost}
+                                history={this.props.history}
+                                displayCommentDetails={this.displayCommentDetails}
+                            >
+                            </Comment>
                         );
                     })}
                 </Col>
