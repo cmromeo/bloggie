@@ -3,13 +3,13 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 import unixToDate from './utils/DateTools'
 import EditPostLink from './EditPostLink';
-import {votePost, selectPost} from './actions/posts';
+import {deletePost, votePost, selectPost} from './actions/posts';
 import { connect } from 'react-redux';
 
 class Post extends Component {
 
     render(){
-        let {post, displayPostDetails, history, selectPost, votePost} = this.props;
+        let {post, displayPostDetails, history, selectPost, votePost, deletePost} = this.props;
         return(
             <div 
                 className="row row-bottom-bordered"
@@ -32,6 +32,10 @@ class Post extends Component {
                     <div 
                         className="trash"
                         style={{cursor: "pointer", hover: "hand"}}
+                        onClick={(e)=>{
+                            e.stopPropagation();
+                            deletePost(post.id);
+                        }}
                     >
                     </div>
                     <div 
@@ -74,6 +78,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
+        deletePost: (postId) => dispatch(deletePost(postId)),
         votePost: (postId, voteType) => dispatch(votePost(postId, voteType)),
         selectPost: (post) => dispatch(selectPost(post))
     };

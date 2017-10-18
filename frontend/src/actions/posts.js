@@ -12,6 +12,7 @@ export const POST_SORTER_INDEX = 'POST_SORTER_INDEX';
 export const SELECTED_POST = 'SELECTED_POST';
 export const UPDATE_SELECTED_POST = 'UPDATE_SELECTED_POST';
 export const QUERY_POSTS = 'QUERY_POSTS';
+export const REMOVE_POST_SUCCESS = 'REMOVE_POST_SUCCESS';
 
 export function fetchPostsSuccessAction(posts) {
     return {
@@ -186,5 +187,39 @@ export function queryPosts(query) {
         type: QUERY_POSTS,
         query
     };
+}
+
+export function deletePost (postId) {
+    const url = `${baseURL}/posts/${postId}`;
+    return (dispatch) => {
+        dispatch(indicateServerCommunicationAction(true));
+        fetch(
+            url, 
+            {
+                method: 'DELETE',
+                headers: {
+                    "Authorization": "temporarily-whatever",
+                }
+            }
+        )
+        .then((response) => {
+            if (!response.ok) {
+                throw Error(response.statusText);
+            }
+
+            dispatch(indicateServerCommunicationAction(false));
+            return response;
+        })
+        .then((response) => response.json())
+        .then(() => dispatch(removePostSuccessAction(postId)))
+        .catch((error) => dispatch(errorCommunicatingWithServerAction(error, "Error while deleting a post.")));
+    };
+}
+
+export function removePostSuccessAction ( postId ) {
+  return {
+        type: REMOVE_POST_SUCCESS,
+        postId
+    }
 }
 

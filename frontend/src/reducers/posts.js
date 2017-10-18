@@ -9,6 +9,10 @@ export function posts (state = [], action) {
             return [action.post, ...state.filter((onePost) => {
                 return onePost.id !== action.post.id;
             })];
+        case 'REMOVE_POST_SUCCESS':
+            return [...state.filter((onePost) => {
+                return onePost.id !== action.postId;
+            })];
         case 'UPDATE_POST_SUCCESS':
             return [...state.filter((onePost) => {
                 return onePost.id !== action.post.id;
