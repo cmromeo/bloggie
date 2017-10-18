@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 import unixToDate from './utils/DateTools'
+import EditCommentLink from './EditCommentLink';
 
 import {selectComment} from './actions/comments';
 import { connect } from 'react-redux';
@@ -52,7 +53,11 @@ class Comment extends Component {
                         
                         >
                     </div>
-                   
+                    <EditCommentLink 
+                        intent="edit" 
+                        comment={comment}
+                        history={history}
+                     />
                 </div>
             </div> 
         );

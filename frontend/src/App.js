@@ -60,6 +60,11 @@ class App extends Component {
                             displayPostDetails={this.displayPostDetails}
                         />
                     )}/>
+                    <Route exact path={`/comments/edit`} render={({history})  => (//comments/:commentId
+                        <CommentAddEditForm
+                            history={history}
+                        />
+                    )}/>
                 </div>
             </div>
         );
