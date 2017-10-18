@@ -16,10 +16,16 @@ import {Link} from 'react-router-dom';
 
 class PostComments extends Component {
 
+    sortComments(){
+        this.props.comments.sort(sortBy("-voteScore"));
+    }
+
     /**
     * @description Called just before the component is mounted
     */
     componentWillMount(){
+        //remove previously selected  comments when coming back to this component
+        this.props.updateSelectedComment(null);
     }
 
     /**
@@ -36,7 +42,7 @@ class PostComments extends Component {
         if (!selectedPost){
             return <NotFound />
         }
-
+        comments && this.sortComments();
 
         console.log("in render, comments: ", comments);
         return(
@@ -79,12 +85,14 @@ const mapStateToProps = (state) => {
         comments: state.comments,
         server_communication_error: state.server_communication_error,
         isLoading: state.isLoading,
+        query: state.commentsQuery
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
         fetchComments: (postId) => dispatch(fetchComments(postId)),
+        updateSelectedComment: (comment) => dispatch(updateSelectedComment(comment)),
     };
 };
 
