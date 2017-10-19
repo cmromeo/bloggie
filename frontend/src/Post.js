@@ -41,6 +41,9 @@ class Post extends Component {
                         onClick={(e)=>{
                             e.stopPropagation();
                             deletePost(post.id);
+                            if (this.props.parent === "PostComments"){
+                                this.props.history.goBack();
+                            }
                         }}
                     >
                     </div>

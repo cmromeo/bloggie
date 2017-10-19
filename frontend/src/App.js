@@ -11,9 +11,20 @@ import PostAddEditForm from './PostAddEditForm';
 import PostComments from './PostComments';
 import CommentAddEditForm from './CommentAddEditForm';
 import Category from './Category';
+import AboutMeModal from './AboutMeModal';
 
 
 class App extends Component {
+
+    state = {
+        displayAboutMe: false
+    }
+
+    setDisplayAboutMe = (display) => {
+        this.setState({
+            displayAboutMe: display
+        });
+    }
 
     displayPostDetails = (post) => {
         //this.selectPost(post);
@@ -26,8 +37,13 @@ class App extends Component {
 
         return (
             <div className="App">
-                <MyNav></MyNav>
+                <MyNav setDisplayAboutMe={this.setDisplayAboutMe}></MyNav>
                 <div>
+                    <AboutMeModal 
+                        show={this.state.displayAboutMe}
+                        setDisplayAboutMe={this.setDisplayAboutMe}
+                        >
+                    </AboutMeModal>
                     <Route exact path='/' render={({history}) => (
                         <div>
                             <Welcome />

@@ -8,8 +8,13 @@ import {
     Modal,
 } from 'react-bootstrap';
 import {Link} from 'react-router-dom';
+import {AboutMeModal} from './AboutMeModal';
 
 class MyNav extends Component {
+
+    showAboutMe () {
+        
+    }
     render(){
         return(
             <Navbar>
@@ -23,8 +28,11 @@ class MyNav extends Component {
                     </Navbar.Brand>
                 </Navbar.Header>
                 <Nav>
-                    <NavItem eventKey={1} href="#">About Me</NavItem>
-                    <NavItem eventKey={2} href="#">Contact</NavItem>
+                    <NavItem 
+                        eventKey={1} 
+                        onSelect={() => {
+                            this.props.setDisplayAboutMe(true);
+                        }} >About Me</NavItem>
                 </Nav>
             </Navbar>
         );
