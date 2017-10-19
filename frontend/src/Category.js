@@ -25,6 +25,9 @@ class Category extends Component {
         this.props.selectPost(null);
     }
 
+    /**
+    * @description sort Post objects 
+    */
     sortPosts(){
         const {postSorterIndex} = this.props;
 
@@ -36,8 +39,6 @@ class Category extends Component {
         }
         this.props.posts.sort(sortBy(sorterKey));
     }
-
-
 
     /**
     * @description Called just after the component is mounted
@@ -105,8 +106,6 @@ class Category extends Component {
         );
     }
 }
-
-
 
 const mapStateToProps = (state) => {
     return {
