@@ -115,7 +115,8 @@ const mapStateToProps = (state) => {
         selectedCategory: state.selectedCategory,
         server_communication_error: state.server_communication_error,
         isLoading: state.isLoading,
-        query: state.postsQuery
+        query: state.postsQuery,
+        post: state.selectedPost,
     };
 };
 

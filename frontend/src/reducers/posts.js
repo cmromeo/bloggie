@@ -39,6 +39,7 @@ export function postSorterIndex (state = 0, action) {
 export function selectedPost (state = null, action) {
     switch (action.type) {
         case 'SELECTED_POST':
+            console.log("reducer of selectedPost called ", action.post);
             return action.post;
         case 'UPDATE_SELECTED_POST':
             return action.post;

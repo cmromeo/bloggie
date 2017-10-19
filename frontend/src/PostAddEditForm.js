@@ -12,7 +12,7 @@ import { FormGroup,
          } from 'react-bootstrap';
 import uuidv1 from 'uuid/v1';
 
-import { addPost, updatePost } from './actions/posts';
+import { addPost, updatePost, selectPost } from './actions/posts';
 import { connect } from 'react-redux';
 
 
@@ -113,9 +113,7 @@ class PostAddEditForm extends Component {
         }
         else{//intent is to add a post
             //set the selected category as the default, else, first category 
-            console.log("this.props.categories.length ", this.props.categories.length);
             if (this.props.categories.length > 0){
-                console.log("this.props.categories.length > 0");
                 this.setState({
                     categoryName: this.props.selectedCategory ? this.props.selectedCategory.name : this.props.categories[0].name
                 });
@@ -136,6 +134,7 @@ class PostAddEditForm extends Component {
             updatePost({"title": this.state.title, "body": this.state.body}, post.id);
             //this.props.history.push(`/posts/details/${post.id}`);
             this.props.history.goBack();
+            this.props.selectPost(null);
         }
         else{//intent to add
             addPost({
@@ -285,7 +284,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         addPost: (newPost) => dispatch(addPost(newPost)),
-        updatePost: (updatedPost, postId) => dispatch(updatePost(updatedPost, postId))
+        updatePost: (updatedPost, postId) => dispatch(updatePost(updatedPost, postId)),
+        selectPost: (post) => dispatch(selectPost(post)),
     };
 };
 

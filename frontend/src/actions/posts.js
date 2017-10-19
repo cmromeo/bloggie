@@ -106,7 +106,7 @@ export function updatePost (updatedPost, postId) {
         .then((response) => response.json())
         .then((post) => {
                 dispatch(updatePostSuccessAction(post));
-                dispatch(updateSelectedPost(post));
+                //dispatch(updateSelectedPost(post));
             }
         )
         .catch((error) => dispatch(errorCommunicatingWithServerAction(error, "Error while editing a post.")));
@@ -169,6 +169,7 @@ export function postSorterIndex(sorterIndex) {
 }
 
 export function selectPost(post) {
+    console.log("selectPost called with Post", post);
     return {
         type: SELECTED_POST,
         post
