@@ -20,14 +20,21 @@ class App extends Component {
         displayAboutMe: false
     }
 
+    /**
+    * @description sets the state displayAboutMe indicating modal display
+    * @param {bool} display
+    */
     setDisplayAboutMe = (display) => {
         this.setState({
             displayAboutMe: display
         });
     }
 
+    /**
+    * @description calls new route to display details of a post
+    * @param {Object} post
+    */
     displayPostDetails = (post) => {
-        //this.selectPost(post);
         this.props.history.push({
             pathname: `/posts/details/${post.id}/`  //path
         });
