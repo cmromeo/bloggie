@@ -23,7 +23,10 @@ class CommentAddEditForm extends Component {
         formIsValid: false
     }
 
-
+    /**
+    * @description checks post if it contains a body
+    * @return {string} success or error
+    */
     getBodyValidationState = () => {
         const length = this.state.body.length;
         if (length > 0) {
@@ -32,6 +35,10 @@ class CommentAddEditForm extends Component {
         else return 'error';
     }
 
+    /**
+    * @description checks post if it contains an author
+    * @return {string} success or error
+    */
     getAuthorValidationState = () => {
         const length = this.state.author.length;
         if (length > 0){
@@ -40,34 +47,46 @@ class CommentAddEditForm extends Component {
         else return 'error';
     }
 
+    /**
+    * @description sets the state value of the validation status of body and author 
+    * @param {Object} event object e
+    */
     handleBodyAuthorChange = (e) => {
         const name = e.target.name;
         const value = e.target.value;
         this.setState({[name]: value}, 
-                () => { this.validateField(name, value) });
+            () => { this.validateField(name, value) });
     }
 
+    /**
+    * @description validates status of body and author 
+    * @param {string} fieldName has value of either "body" or "author"
+    * @param {string} value is the either the body or the author of the post 
+    */
     validateField(fieldName, value) {
-    let bodyValid = this.state.bodyValid;
-    let authorValid = this.state.authorValid;
+        let bodyValid = this.state.bodyValid;
+        let authorValid = this.state.authorValid;
 
-    switch(fieldName) {
-        case 'body':
-            bodyValid = value.length > 0
-            break;
-        case 'author':
-            authorValid = value.length > 0
-            break;
-        default:
-            break;
+        switch(fieldName) {
+            case 'body':
+                bodyValid = value.length > 0
+                break;
+            case 'author':
+                authorValid = value.length > 0
+                break;
+            default:
+                break;
+        }
+        this.setState(
+            {
+                bodyValid: bodyValid,
+                authorValid: authorValid
+            }, this.validateForm);
     }
-    this.setState(
-        {
-            bodyValid: bodyValid,
-            authorValid: authorValid
-        }, this.validateForm);
-}
 
+    /**
+    * @description sets the formIsValid state value
+    */
     validateForm = () => {
         this.setState({
             formIsValid: this.state.bodyValid && this.state.authorValid
