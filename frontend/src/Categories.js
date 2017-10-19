@@ -10,6 +10,11 @@ import {Link} from 'react-router-dom';
 
 class Categories extends Component {
 
+    /**
+    * @description marks a category as selected when it is tapped 
+    * @param {Object} category
+    * @param {Object} e
+    */
     onCategorySelect = (category, e) => {
         this.props.selectCategory(category);
     }
