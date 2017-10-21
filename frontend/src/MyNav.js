@@ -4,8 +4,7 @@ import 'bootstrap/dist/css/bootstrap-theme.css';
 import {
     Nav,
     Navbar,
-    NavItem,
-    Modal,
+    NavItem
 } from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import {AboutMeModal} from './AboutMeModal';

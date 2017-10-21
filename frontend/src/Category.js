@@ -48,20 +48,21 @@ class Category extends Component {
         }
         this.sortPosts();
 
-        let postsOfCategory = posts.filter((post) => {
-            return post.category === selectedCategory.path;
-        });
+        // let postsOfCategory = posts.filter((post) => {
+        //     return post.category === selectedCategory.path;
+        // });
 
         let filteredPosts = posts.filter((onePost) => {
             return onePost.category === selectedCategory.name;
         });
         if (query){
-            filteredPosts = posts.filter((onePost) => {
-                return 
-                    (onePost.title.toLowerCase().includes(query) || 
-                    onePost.author.toLowerCase().includes(query) ||
-                    onePost.body.toLowerCase().includes(query) ||
-                    onePost.category.toLowerCase().includes(query))
+            filteredPosts = filteredPosts.filter((onePost) => {
+                return (
+                    (onePost.title.toLowerCase().includes(query)) || 
+                    (onePost.author.toLowerCase().includes(query)) ||
+                    (onePost.body.toLowerCase().includes(query)) ||
+                    (onePost.category.toLowerCase().includes(query))
+                );
             });
         }
 
