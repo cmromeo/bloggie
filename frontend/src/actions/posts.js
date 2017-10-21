@@ -169,7 +169,6 @@ export function postSorterIndex(sorterIndex) {
 }
 
 export function selectPost(post) {
-    console.log("selectPost called with Post", post);
     return {
         type: SELECTED_POST,
         post

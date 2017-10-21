@@ -17,7 +17,6 @@ class Post extends Component {
                 onClick={() => {
                     //displayPostDetails is passed only when displaying multiple posts
                     selectPost(post);
-                      console.log("post clicked post ", post);
                     displayPostDetails && displayPostDetails(post);
                 }}
                 >

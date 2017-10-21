@@ -9,22 +9,11 @@ import { connect } from 'react-redux';
 
 class Comment extends Component {
         
-    /**
-    * @description Called just after the component is mounted
-    */
-    componentWillMount(){
-    }
 
     render(){
         let {comment, deleteComment, voteComment, history} = this.props;
         return(
-            <div 
-                className="row row-bottom-bordered"
-                onClick={() => {
-                    //console.log("on click tapped will call displaycommentdetails: ", displayCommentDetails);
-                    //displayPostDetails is passed only when displaying multiple posts
-                    //displayCommentDetails && displayCommentDetails(comment);
-                }} >
+            <div className="row row-bottom-bordered">
                 <div className="comment-body">
                     { comment.body }
                 </div>

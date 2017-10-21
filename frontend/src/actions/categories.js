@@ -38,7 +38,6 @@ export function fetchCategories() {
 }
 
 export function selectCategory(category) {
-    console.log("selectCategory action: ", category);
     return {
         type: SELECTED_CATEGORY,
         category
@@ -46,7 +45,6 @@ export function selectCategory(category) {
 }
 
 export function updateSelectedCategory(category) {
-    console.log("updateSelectedCategory action: ", category);
     return {
         type: UPDATE_SELECTED_CATEGORY,
         category

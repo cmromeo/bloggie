@@ -40,13 +40,6 @@ class Category extends Component {
         this.props.posts.sort(sortBy(sorterKey));
     }
 
-    /**
-    * @description Called just after the component is mounted
-    */
-    componentDidMount(){
-        //fetch all comments for this post
-    }
-
     
     render(){
         let { posts, selectedCategory, history, displayPostDetails, query } = this.props;

@@ -14,7 +14,6 @@ export const UPDATE_SELECTED_COMMENT = 'UPDATE_SELECTED_COMMENT';
 export const QUERY_COMMENTS = 'QUERY_COMMENTS';
 
 export function fetchCommentsSuccessAction(comments) {
-    console.log("in fetchCommentsSuccessAction, comments are ", comments);
     return {
         type: FETCH_COMMENTS_SUCCESS,
         comments

@@ -4,7 +4,6 @@ const DATA_IS_LOADING = 'DATA_IS_LOADING';
 const SERVER_COMMUNICATION_ERROR = 'SERVER_COMMUNICATION_ERROR';
 
 export function indicateServerCommunicationAction(isLoading) {
-    console.log("indicateServerCommunicationAction ", isLoading);
     return {
         type: DATA_IS_LOADING,
         isLoading

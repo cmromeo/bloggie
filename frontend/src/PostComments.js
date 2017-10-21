@@ -47,7 +47,6 @@ class PostComments extends Component {
         }
         comments && this.sortComments();
 
-        console.log("in render, comments: ", comments);
         return(
             <div className="container">
                 <Col mdOffset={1} md={10} style={{textAlign: "left", marginBottom: "10px", paddingLeft: "0px"}}>
