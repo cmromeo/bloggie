@@ -48,10 +48,6 @@ class Category extends Component {
         }
         this.sortPosts();
 
-        // let postsOfCategory = posts.filter((post) => {
-        //     return post.category === selectedCategory.path;
-        // });
-
         let filteredPosts = posts.filter((onePost) => {
             return onePost.category === selectedCategory.name;
         });

@@ -7,7 +7,6 @@ import {
     NavItem
 } from 'react-bootstrap';
 import {Link} from 'react-router-dom';
-import {AboutMeModal} from './AboutMeModal';
 
 class MyNav extends Component {
 
