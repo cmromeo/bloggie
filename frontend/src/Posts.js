@@ -18,7 +18,9 @@ import { connect } from 'react-redux';
 
 
 class Posts extends Component {
-
+    /**
+    * @description Sorts posts dynamically
+    */
     sortPosts(){
         const {postSorterIndex} = this.props;
 
@@ -40,6 +42,9 @@ class Posts extends Component {
         this.props.selectPost(null);
     }
 
+    /**
+    * @description Filter posts based on the user defined criteria
+    */
     filterPosts(){
         const {posts, query} = this.props;
         return posts.filter((onePost) => {

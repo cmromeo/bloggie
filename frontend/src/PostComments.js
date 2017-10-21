@@ -16,7 +16,9 @@ import {Link} from 'react-router-dom';
 import Comment from './Comment';
 
 class PostComments extends Component {
-
+    /**
+    * @description Sorts comments by voteScore with highest on top
+    */
     sortComments(){
         this.props.comments.sort(sortBy("-voteScore"));
     }

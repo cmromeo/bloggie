@@ -24,7 +24,7 @@ class CommentAddEditForm extends Component {
     }
 
     /**
-    * @description checks post if it contains a body
+    * @description checks comment if it contains a body
     * @return {string} success or error
     */
     getBodyValidationState = () => {
@@ -36,7 +36,7 @@ class CommentAddEditForm extends Component {
     }
 
     /**
-    * @description checks post if it contains an author
+    * @description checks comment if it contains an author
     * @return {string} success or error
     */
     getAuthorValidationState = () => {
@@ -61,7 +61,7 @@ class CommentAddEditForm extends Component {
     /**
     * @description validates status of body and author 
     * @param {string} fieldName has value of either "body" or "author"
-    * @param {string} value is the either the body or the author of the post 
+    * @param {string} value is the either the body or the author of the comment 
     */
     validateField(fieldName, value) {
         let bodyValid = this.state.bodyValid;
@@ -85,7 +85,7 @@ class CommentAddEditForm extends Component {
     }
 
     /**
-    * @description sets the formIsValid state value
+    * @description sets the value of the formIsValid state 
     */
     validateForm = () => {
         this.setState({
@@ -109,8 +109,11 @@ class CommentAddEditForm extends Component {
         }
     }
 
+    /**
+    * @description fires when submit button for either add or edit  
+    * @param {Object} event object e
+    */
     handleSubmit = (event) => {
-        console.log("handle submit of Comment Edit");
         event.preventDefault()
         const { updateComment, addComment, post, comment } = this.props;
         if (comment){//intent to edit

@@ -30,6 +30,10 @@ class PostAddEditForm extends Component {
         formIsValid: false
     }
 
+    /**
+    * @description checks post if it contains required title
+    * @return {string} success or error
+    */
     getTitleValidationState = () => {
         const length = this.state.title.length;
         if (length > 0) {
@@ -38,6 +42,10 @@ class PostAddEditForm extends Component {
         else return 'error';
     }
 
+    /**
+    * @description checks post if it contains required body
+    * @return {string} success or error
+    */
     getBodyValidationState = () => {
         const length = this.state.body.length;
         if (length > 0) {
@@ -46,6 +54,10 @@ class PostAddEditForm extends Component {
         else return 'error';
     }
 
+    /**
+    * @description checks post if it contains required author
+    * @return {string} success or error
+    */
     getAuthorValidationState = () => {
         const length = this.state.author.length;
         if (length > 0){
@@ -54,6 +66,10 @@ class PostAddEditForm extends Component {
         else return 'error';
     }
 
+    /**
+    * @description sets the state value of the validation status of the title, body and author 
+    * @param {Object} event object e
+    */
     handleTitleBodyAuthorChange = (e) => {
         const name = e.target.name;
         const value = e.target.value;
@@ -61,6 +77,11 @@ class PostAddEditForm extends Component {
                 () => { this.validateField(name, value) });
     }
 
+    /**
+    * @description validates status of title, body and author 
+    * @param {string} fieldName has value of either "title", "body" or "author"
+    * @param {string} value is the either the title, body or the author of the post 
+    */
     validateField(fieldName, value) {
     let titleValid = this.state.titleValid;
     let bodyValid = this.state.bodyValid;
@@ -85,8 +106,11 @@ class PostAddEditForm extends Component {
             bodyValid: bodyValid,
             authorValid: authorValid
         }, this.validateForm);
-}
+    }
 
+    /**
+    * @description sets the value of the formIsValid state 
+    */
     validateForm = () => {
         this.setState({
             formIsValid: this.state.titleValid && this.state.bodyValid && this.state.authorValid
@@ -121,6 +145,11 @@ class PostAddEditForm extends Component {
         }
     }
 
+    /**
+    * @description saves the selected category  
+    * @param {string} eventKey is the unique name of the category 
+    * @param {Object} event object 
+    */
     handleSelectCategory = (eventKey, event) => {
         this.setState({
             categoryName: eventKey

@@ -12,9 +12,6 @@ import {AboutMeModal} from './AboutMeModal';
 
 class MyNav extends Component {
 
-    showAboutMe () {
-        
-    }
     render(){
         return(
             <Navbar>

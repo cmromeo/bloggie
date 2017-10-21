@@ -12,6 +12,9 @@ import { connect } from 'react-redux';
 
 class Sorter extends Component {
 
+    /**
+    * @description Saves the sorter selected by the user
+    */
     sorterSelected = (e) => {
         this.props.selectSorter(e);
     }

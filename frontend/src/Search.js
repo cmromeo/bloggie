@@ -24,7 +24,6 @@ class Search extends Component {
             </div>
         );
     }
-
 }
 
 const mapStateToProps = (state) => {
